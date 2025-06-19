@@ -9,6 +9,22 @@ const getExpenditure = (req, res) => {
 // @route   POST /api/expenditure
 // @access  Private
 const setExpenditure = (req, res) => {
+    console.log(req.body)
+    if (!req.body) {
+        res.status(400)
+        throw new Error('Please add an amount and spending category')
+        //.json({ message: 'Please add an amount and spending category'})
+    }
+    if (!req.body.amount) {
+        res.status(400)
+        throw new Error('Please add an amount')
+        //.json({ message: 'Please add an amount'})
+    }
+    if (!req.body.category) {
+        res.status(400)
+        throw new Error('Please add spending category')
+        //.json({ message: 'Please add spending category'})
+    }
     res.status(200).json({ message: 'Set expenditure' })
 }
 
