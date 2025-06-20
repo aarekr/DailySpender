@@ -1,10 +1,12 @@
 const asyncHandler = require('express-async-handler')
+const Expenditure = require('../models/expenditureModel')
 
 // @desc    Get expenditure
 // @route   GET /api/expenditure
 // @access  Private
 const getExpenditure = asyncHandler(async (req, res) => {
-    res.status(200).json({ message: 'Get expenditure' })
+    const expenditureItems = await Expenditure.find()
+    res.status(200).json(expenditureItems)
 })
 
 // @desc    Set expenditure
@@ -24,21 +26,39 @@ const setExpenditure = asyncHandler(async (req, res) => {
         res.status(400)
         throw new Error('Please add spending category')
     }
-    res.status(200).json({ message: 'Set expenditure' })
+    const expenditure = await Expenditure.create({
+        amount: req.body.amount,
+        category: req.body.category
+    })
+    res.status(200).json(expenditure)
 })
 
 // @desc    Update expenditure
 // @route   PUT /api/expenditure/:id
 // @access  Private
 const updateExpenditure = asyncHandler(async (req, res) => {
-    res.status(200).json({ message: `Update expenditure ${req.params.id}` })
+    const expenditure = await Expenditure.findById(req.params.id)
+    if (!expenditure) {
+        res.status(400)
+        throw new Error('Expenditure item not found')
+    }
+    const updatedExpenditure = await Expenditure.findByIdAndUpdate(req.params.id, req.body, {
+        new: true,
+    })
+    res.status(200).json(updatedExpenditure)
 })
 
 // @desc    Delete expenditure
 // @route   DELETE /api/expenditure/:id
 // @access  Private
 const deleteExpenditure = asyncHandler(async (req, res) => {
-    res.status(200).json({ message: `Delete expenditure ${req.params.id}` })
+    const expenditure = await Expenditure.findById(req.params.id)
+    if (!expenditure) {
+        res.status(400)
+        throw new Error('Expenditure item not found')
+    }
+    await expenditure.deleteOne()  //remove()
+    res.status(200).json({ id: req.params.id })
 })
 
 module.exports = {
