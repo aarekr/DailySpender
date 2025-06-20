@@ -1,46 +1,45 @@
+const asyncHandler = require('express-async-handler')
+
 // @desc    Get expenditure
 // @route   GET /api/expenditure
 // @access  Private
-const getExpenditure = (req, res) => {
+const getExpenditure = asyncHandler(async (req, res) => {
     res.status(200).json({ message: 'Get expenditure' })
-}
+})
 
 // @desc    Set expenditure
 // @route   POST /api/expenditure
 // @access  Private
-const setExpenditure = (req, res) => {
+const setExpenditure = asyncHandler(async (req, res) => {
     console.log(req.body)
     if (!req.body) {
         res.status(400)
-        throw new Error('Please add an amount and spending category')
-        //.json({ message: 'Please add an amount and spending category'})
+        throw new Error('Please add amount and spending category')
     }
     if (!req.body.amount) {
         res.status(400)
-        throw new Error('Please add an amount')
-        //.json({ message: 'Please add an amount'})
+        throw new Error('Please add amount')
     }
     if (!req.body.category) {
         res.status(400)
         throw new Error('Please add spending category')
-        //.json({ message: 'Please add spending category'})
     }
     res.status(200).json({ message: 'Set expenditure' })
-}
+})
 
 // @desc    Update expenditure
 // @route   PUT /api/expenditure/:id
 // @access  Private
-const updateExpenditure = (req, res) => {
+const updateExpenditure = asyncHandler(async (req, res) => {
     res.status(200).json({ message: `Update expenditure ${req.params.id}` })
-}
+})
 
 // @desc    Delete expenditure
 // @route   DELETE /api/expenditure/:id
 // @access  Private
-const deleteExpenditure = (req, res) => {
+const deleteExpenditure = asyncHandler(async (req, res) => {
     res.status(200).json({ message: `Delete expenditure ${req.params.id}` })
-}
+})
 
 module.exports = {
     getExpenditure,
