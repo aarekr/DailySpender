@@ -5,11 +5,13 @@
   "main": "server.js",
   "scripts": {
     "start": "node backend/server.js",
-    "server": "nodemon backend/server.js"
+    "server": "nodemon backend/server.js",
+    "client": "npm start --prefix frontend"
   },
   "author": "Aare",
   "license": "MIT",
   "dependencies": {
+    "@reduxjs/toolkit": "^2.8.2",
     "bcryptjs": "^3.0.2",
     "colors": "^1.4.0",
     "dotenv": "^16.5.0",
@@ -17,7 +19,10 @@
     "express-async-handler": "^1.2.0",
     "jsonwebtoken": "^9.0.2",
     "mongodb": "^6.17.0",
-    "mongoose": "^8.16.0"
+    "mongoose": "^8.16.0",
+    "react-redux": "^9.2.0",
+    "redux": "^5.0.1",
+    "web-vitals": "^5.0.3"
   },
   "devDependencies": {
     "nodemon": "^3.1.10"
