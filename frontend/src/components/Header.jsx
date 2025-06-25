@@ -7,7 +7,7 @@ function Header() {
   const navigate = useNavigate()
   //const dispatch = useDispatch()
   //const { user } = useSelector((state) => state.auth)
-  let user  // temporary
+  const user = "a"
   const onLogout = () => {
     //dispatch(logout())
     //dispatch(reset())

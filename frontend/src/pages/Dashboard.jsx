@@ -1,18 +1,34 @@
 import { useEffect } from "react"
 import { useNavigate } from 'react-router-dom'
-import { useSelector } from "react-redux"
+import { useSelector, useDispatch } from "react-redux"
 import ExpenseForm from "../components/ExpenseForm"
+import Spinner from '../components/Spinner'
+import { getExpenses, reset } from "../features/expenses/expenseSlice"
 
 function Dashboard() {
-  //const navigate = useNavigate()
+  const navigate = useNavigate()
+  //const dispatch = useDispatch()
   //const { user } = useSelector((state) => state.auth)
-  const user = "a"
+  const user = ""
+  //const { goals, isLoading, isError, message } = useSelector((state) => state.expenses)
+
   /*useEffect(() => {
+    if (isError) {
+      console.log(message)
+    }
     if (!user) {
       navigate('/login')
     }
-  }, [user, navigate])*/
-  
+    dispatch(getExpenses)
+    return () => {
+      dispatch(reset())
+    }
+  }, [user, navigate, isError, message, dispatch])*/
+
+  /*if (isLoading) {
+    return <Spinner />
+  }*/
+
   return (
     <>
       <section className="heading">

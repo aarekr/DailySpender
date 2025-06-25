@@ -12,6 +12,13 @@ const root = createRoot(container);
 root.render(<React.StrictMode><App /></React.StrictMode>);
 
 /*root.render(
+  <Provider>
+      <App />
+  </Provider>
+);*/
+
+// original
+/*root.render(
   <React.StrictMode>
     <Provider store={store}>
       <App />

@@ -13,8 +13,20 @@ const createExpense = async (expenseData, token) => {
     return response.data
 }
 
+// Get user expenses
+const getExpenses = async (token) => {
+    const config = {
+        headers: {
+            Authorization: `Bearer ${token}`
+        }
+    }
+    const response = await axios.get(API_URL, config)
+    return response.data
+}
+
 const expenseService = {
     createExpense,
+    getExpenses,
 }
 
 export default expenseService
