@@ -24,9 +24,21 @@ const getExpenses = async (token) => {
     return response.data
 }
 
+// Delete user expenses
+const deleteExpense = async (expenseId, token) => {
+    const config = {
+        headers: {
+            Authorization: `Bearer ${token}`
+        }
+    }
+    const response = await axios.delete(API_URL + expenseId, config)
+    return response.data
+}
+
 const expenseService = {
     createExpense,
     getExpenses,
+    deleteExpense,
 }
 
 export default expenseService

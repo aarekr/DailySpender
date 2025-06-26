@@ -2,6 +2,7 @@ import { useEffect } from "react"
 import { useNavigate } from 'react-router-dom'
 import { useSelector, useDispatch } from "react-redux"
 import ExpenseForm from "../components/ExpenseForm"
+import ExpenseItem from "../components/ExpenseItem"
 import Spinner from '../components/Spinner'
 import { getExpenses, reset } from "../features/expenses/expenseSlice"
 
@@ -10,7 +11,8 @@ function Dashboard() {
   //const dispatch = useDispatch()
   //const { user } = useSelector((state) => state.auth)
   const user = ""
-  //const { goals, isLoading, isError, message } = useSelector((state) => state.expenses)
+  //const { expenses, isLoading, isError, message } = useSelector((state) => state.expenses)
+  const expenses = []  // temporary => delete
 
   /*useEffect(() => {
     if (isError) {
@@ -36,6 +38,14 @@ function Dashboard() {
         <p>Expenses overview</p>
       </section>
       <ExpenseForm />
+      <section className="content">
+        {expenses.length > 0
+          ? <div className="expenses">
+              {expenses.map((expense) => <ExpenseItem key={expense._id} expense={expense} />)}
+            </div>
+          : <h3>You have not entered any expenses</h3>
+        }
+      </section>
     </>
   )
 }
