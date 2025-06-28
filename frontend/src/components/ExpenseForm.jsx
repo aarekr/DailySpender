@@ -6,10 +6,10 @@ function ExpenseForm() {
     const [amount, setAmount] = useState('')
     const [category, setCategory] = useState('')
 
-    //const dispatch = useDispatch()
+    const dispatch = useDispatch()
     const onSubmit = (e) => {
         e.preventDefault()
-        //dispatch(createExpense({amount}, {category}))
+        dispatch(createExpense({amount}, {category}))
     }
 
     return <section className="form">

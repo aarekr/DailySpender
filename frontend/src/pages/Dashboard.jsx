@@ -8,13 +8,11 @@ import { getExpenses, reset } from "../features/expenses/expenseSlice"
 
 function Dashboard() {
   const navigate = useNavigate()
-  //const dispatch = useDispatch()
-  //const { user } = useSelector((state) => state.auth)
-  const user = ""
-  //const { expenses, isLoading, isError, message } = useSelector((state) => state.expenses)
-  const expenses = []  // temporary => delete
+  const dispatch = useDispatch()
+  const { user } = useSelector((state) => state.auth)
+  const { expenses, isLoading, isError, message } = useSelector((state) => state.expenses)
 
-  /*useEffect(() => {
+  useEffect(() => {
     if (isError) {
       console.log(message)
     }
@@ -25,11 +23,11 @@ function Dashboard() {
     return () => {
       dispatch(reset())
     }
-  }, [user, navigate, isError, message, dispatch])*/
+  }, [user, navigate, isError, message, dispatch])
 
-  /*if (isLoading) {
+  if (isLoading) {
     return <Spinner />
-  }*/
+  }
 
   return (
     <>

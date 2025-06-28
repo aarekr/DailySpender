@@ -16,7 +16,7 @@ function Register() {
     const { name, email, password, password2 } = formData
 
     const navigate = useNavigate()
-    /*const dispatch = useDispatch()
+    const dispatch = useDispatch()
     const { user, isLoading, isError, isSuccess, message } = useSelector((state) => state.auth)
 
     useEffect(() => {
@@ -27,7 +27,7 @@ function Register() {
             navigate('/')
         }
         dispatch(reset())
-    }, [user, isError, isSuccess, message, navigate, dispatch])*/
+    }, [user, isError, isSuccess, message, navigate, dispatch])
 
     const onChange = (e) => {
         setFormData((prevState) => ({
@@ -43,13 +43,13 @@ function Register() {
             const userData = {
                 name, email, password,
             }
-            //dispatch(register(userData))
+            dispatch(register(userData))
         }
     }
 
-    /*if (isLoading) {
+    if (isLoading) {
         return <Spinner />
-    }*/
+    }
 
     return (
         <>
