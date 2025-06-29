@@ -1,15 +1,18 @@
 import axios from 'axios'
 
-const API_URL = '/api/expenses/'
+//const API_URL = '/api/expenses/'
+const API_URL = '/api/expenditure/'
 
 // Create new expense
 const createExpense = async (expenseData, token) => {
+    console.log("expenseService createExpense expenseData: ", expenseData)
     const config = {
         headers: {
             Authorization: `Bearer ${token}`
         }
     }
     const response = await axios.post(API_URL, expenseData, config)
+    console.log("expenseService createExpense response: ", response)
     return response.data
 }
 

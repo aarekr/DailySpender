@@ -10,13 +10,17 @@ const initialState = {
 }
 
 // Create new expense
-export const createExpense = createAsyncThunk('expenses/create', async (expenseData, thunkAPI) => {
+export const createExpense = createAsyncThunk('expenses/create', async (expenseData, thunkAPI) => {  // original: 'expenses/create'
     try {
         const token = thunkAPI.getState().auth.user.token
+        //console.log("expenseSlice createExpense try token      : ", token)
+        console.log("expenseSlice createExpense try expenseData: ", expenseData)
         return await expenseService.createExpense(expenseData, token)
     } catch (error) {
         const message = (error.response && error.response.data && error.response.data.message)
             || error.message || error.toString()
+        console.log("expenseSlice createExpense error        : ", error)
+        console.log("expenseSlice createExpense catch message: ", message)
         return thunkAPI.rejectWithValue(message)
     }
 })

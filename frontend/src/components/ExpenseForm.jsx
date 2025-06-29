@@ -9,7 +9,8 @@ function ExpenseForm() {
     const dispatch = useDispatch()
     const onSubmit = (e) => {
         e.preventDefault()
-        dispatch(createExpense({amount}, {category}))
+        dispatch(createExpense({amount, category}))
+        //dispatch(createExpense([amount, category]))
     }
 
     return <section className="form">

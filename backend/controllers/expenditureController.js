@@ -14,16 +14,18 @@ const getExpenditure = asyncHandler(async (req, res) => {
 // @route   POST /api/expenditure
 // @access  Private
 const setExpenditure = asyncHandler(async (req, res) => {
-    console.log(req.body)
+    console.log("backend expenditureController setExpenditure: ", req.body)
     if (!req.body) {
         res.status(400)
         throw new Error('Please add amount and spending category')
     }
     if (!req.body.amount) {
+        console.log("!req.body.amount")
         res.status(400)
         throw new Error('Please add amount')
     }
     if (!req.body.category) {
+        console.log("!req.body.category")
         res.status(400)
         throw new Error('Please add spending category')
     }
