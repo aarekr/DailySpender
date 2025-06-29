@@ -36,10 +36,26 @@ function Dashboard() {
         <p>Expenses overview</p>
       </section>
       <ExpenseForm />
+      <hr /> <br />
       <section className="content">
         {expenses.length > 0
           ? <div className="expenses">
-              {expenses.map((expense) => <ExpenseItem key={expense._id} expense={expense} />)}
+              <h3>All expenses</h3>
+              <table border="1">
+                <thead>
+                  <tr>
+                    <td width="90">Amount</td>
+                    <td width="150">Category</td>
+                    <td width="130">Date</td>
+                    <td width="110">Delete</td>
+                  </tr>
+                </thead>
+                <tbody>
+                  {expenses.map((expense) =>
+                      <ExpenseItem key={expense._id} expense={expense} />
+                  )}
+                </tbody>
+              </table>
             </div>
           : <h3>You have not entered any expenses</h3>
         }

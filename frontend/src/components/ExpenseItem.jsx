@@ -5,12 +5,16 @@ function ExpenseItem({ expense }) {
     const dispatch = useDispatch()
     console.log("ExpenseItem expense: ", expense)
     // <div>{new Date(expense.createdAt.toLocalString('en-US'))}</div>
+    const dateSplit = expense.createdAt.split('-')
+    const dateModified = dateSplit[2].split('T')[0] + '.' + dateSplit[1] + '.' + dateSplit[0]
 
     return (
-        <div className="expense">
-            <h2>{expense.amount} {expense.category}</h2>
-            <button onClick={() => dispatch(deleteExpense(expense._id))} className="close">X</button>
-        </div>
+        <tr>
+            <td>{expense.amount}</td>
+            <td>{expense.category}</td>
+            <td>{dateModified}</td>
+            <td><button onClick={() => dispatch(deleteExpense(expense._id))} className="close">Delete</button></td>
+        </tr>
     )
 }
 
