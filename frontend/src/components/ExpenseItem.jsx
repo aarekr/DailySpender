@@ -3,7 +3,6 @@ import { deleteExpense } from '../features/expenses/expenseSlice'
 
 function ExpenseItem({ expense }) {
     const dispatch = useDispatch()
-    console.log("ExpenseItem expense: ", expense)
     // <div>{new Date(expense.createdAt.toLocalString('en-US'))}</div>
     const dateSplit = expense.createdAt.split('-')
     const dateModified = dateSplit[2].split('T')[0] + '.' + dateSplit[1] + '.' + dateSplit[0]

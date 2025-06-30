@@ -21,7 +21,7 @@ function ExpenseForm() {
                 <select name="category" id="category" value={category} onChange={(e) => setCategory(e.target.value)}>
                     <option value="Beer">Beer</option>
                     <option value="Food">Food</option>
-                    <option value="Lunch">Lunch</option>
+                    <option value="Eating out">Eating out</option>
                     <hr />
                     <option value="Fuel">Fuel</option>
                     <option value="Gifts">Gifts</option>

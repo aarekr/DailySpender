@@ -4,6 +4,7 @@ import { useSelector, useDispatch } from "react-redux"
 import ExpenseForm from "../components/ExpenseForm"
 import ExpenseItem from "../components/ExpenseItem"
 import Spinner from '../components/Spinner'
+import CategoryRow from "./CategoryRow"
 import { getExpenses, reset } from "../features/expenses/expenseSlice"
 
 function Dashboard() {
@@ -39,15 +40,45 @@ function Dashboard() {
       <hr /> <br />
       <section className="content">
         {expenses.length > 0
+          ? <h3>Expenses per spending category</h3>
+          : null
+        }
+        {expenses.length > 0
+          ? (<table border="1">
+                <thead>
+                  <tr>
+                    <th width="150">Category</th>
+                    <th width="100">Total</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <CategoryRow expenses={expenses} category={'Beer'} />
+                  <CategoryRow expenses={expenses} category={'Food'} />
+                  <CategoryRow expenses={expenses} category={'Eating out'} />
+                  <CategoryRow expenses={expenses} category={'Fuel'} />
+                  <CategoryRow expenses={expenses} category={'Gifts'} />
+                  <CategoryRow expenses={expenses} category={'Home'} />
+                  <CategoryRow expenses={expenses} category={'Public transport'} />
+                  <CategoryRow expenses={expenses} category={'Travel'} />
+                  <CategoryRow expenses={expenses} category={'Other'} />
+                </tbody>
+              </table>
+            )
+          : null
+        }
+      </section>
+      <br />
+      <section className="content">
+        {expenses.length > 0
           ? <div className="expenses">
               <h3>All expenses</h3>
               <table border="1">
                 <thead>
                   <tr>
-                    <td width="90">Amount</td>
-                    <td width="150">Category</td>
-                    <td width="130">Date</td>
-                    <td width="110">Delete</td>
+                    <th width="90">Amount</th>
+                    <th width="150">Category</th>
+                    <th width="130">Date</th>
+                    <th width="110">Delete</th>
                   </tr>
                 </thead>
                 <tbody>
@@ -59,6 +90,7 @@ function Dashboard() {
             </div>
           : <h3>You have not entered any expenses</h3>
         }
+        <br /> <br />
       </section>
     </>
   )
