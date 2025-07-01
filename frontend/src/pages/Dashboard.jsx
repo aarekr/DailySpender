@@ -48,7 +48,8 @@ function Dashboard() {
                 <thead>
                   <tr>
                     <th width="150">Category</th>
-                    <th width="100">Total</th>
+                    <th width="100">Sum</th>
+                    <th width="110">% of Total</th>
                   </tr>
                 </thead>
                 <tbody>
@@ -67,7 +68,7 @@ function Dashboard() {
           : null
         }
       </section>
-      <br />
+      <br /> <hr /> <br />
       <section className="content">
         {expenses.length > 0
           ? <div className="expenses">
@@ -75,9 +76,9 @@ function Dashboard() {
               <table border="1">
                 <thead>
                   <tr>
-                    <th width="90">Amount</th>
-                    <th width="150">Category</th>
                     <th width="130">Date</th>
+                    <th width="150">Category</th>
+                    <th width="90">Amount</th>
                     <th width="110">Delete</th>
                   </tr>
                 </thead>

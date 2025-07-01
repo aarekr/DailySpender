@@ -9,9 +9,9 @@ function ExpenseItem({ expense }) {
 
     return (
         <tr>
-            <td>{expense.amount}</td>
-            <td>{expense.category}</td>
             <td>{dateModified}</td>
+            <td>{expense.category}</td>
+            <td>{expense.amount}</td>
             <td><button onClick={() => dispatch(deleteExpense(expense._id))} className="close">Delete</button></td>
         </tr>
     )
