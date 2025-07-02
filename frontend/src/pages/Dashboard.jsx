@@ -37,41 +37,39 @@ function Dashboard() {
         <p>Expenses overview</p>
       </section>
       <ExpenseForm />
-      <hr /> <br />
       <section className="content">
         {expenses.length > 0
-          ? <h3>Expenses per spending category</h3>
+          ? <><hr /> <br /> <h3>Expenses per spending category</h3></>
           : null
         }
         {expenses.length > 0
-          ? (<table border="1">
-                <thead>
-                  <tr>
-                    <th width="150">Category</th>
-                    <th width="100">Sum</th>
-                    <th width="110">% of Total</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  <CategoryRow expenses={expenses} category={'Beer'} />
-                  <CategoryRow expenses={expenses} category={'Food'} />
-                  <CategoryRow expenses={expenses} category={'Eating out'} />
-                  <CategoryRow expenses={expenses} category={'Fuel'} />
-                  <CategoryRow expenses={expenses} category={'Gifts'} />
-                  <CategoryRow expenses={expenses} category={'Home'} />
-                  <CategoryRow expenses={expenses} category={'Public transport'} />
-                  <CategoryRow expenses={expenses} category={'Travel'} />
-                  <CategoryRow expenses={expenses} category={'Other'} />
-                </tbody>
-              </table>
-            )
+          ? <table border="1">
+              <thead>
+                <tr>
+                  <th width="150">Category</th>
+                  <th width="100">Sum</th>
+                  <th width="110">% of Total</th>
+                </tr>
+              </thead>
+              <tbody>
+                <CategoryRow expenses={expenses} category={'Beer'} />
+                <CategoryRow expenses={expenses} category={'Food'} />
+                <CategoryRow expenses={expenses} category={'Eating out'} />
+                <CategoryRow expenses={expenses} category={'Fuel'} />
+                <CategoryRow expenses={expenses} category={'Gifts'} />
+                <CategoryRow expenses={expenses} category={'Home'} />
+                <CategoryRow expenses={expenses} category={'Public transport'} />
+                <CategoryRow expenses={expenses} category={'Travel'} />
+                <CategoryRow expenses={expenses} category={'Other'} />
+              </tbody>
+            </table>
           : null
         }
       </section>
-      <br /> <hr /> <br />
       <section className="content">
         {expenses.length > 0
           ? <div className="expenses">
+              <br /> <hr /> <br />
               <h3>All expenses</h3>
               <table border="1">
                 <thead>

@@ -22,10 +22,10 @@ export const createExpense = createAsyncThunk('expenses/create', async (expenseD
 })
 
 // Get user expenses
-export const getExpenses = createAsyncThunk('expenses/getAll', async (__dirname, thunkAPI) => {
+export const getExpenses = createAsyncThunk('expenditure/getAll', async (__dirname, thunkAPI) => {
     try {
         const token = thunkAPI.getState().auth.user.token
-        return await expenseService.getExpenses(token)
+        return await expenseService.getExpenditure(token)
     } catch (error) {
         const message = (error.response && error.response.data && error.response.data.message)
             || error.message || error.toString()

@@ -14,7 +14,7 @@ const createExpense = async (expenseData, token) => {
 }
 
 // Get user expenses
-const getExpenses = async (token) => {
+const getExpenditure = async (token) => {
     const config = {
         headers: {
             Authorization: `Bearer ${token}`
@@ -37,7 +37,7 @@ const deleteExpense = async (expenseId, token) => {
 
 const expenseService = {
     createExpense,
-    getExpenses,
+    getExpenditure,
     deleteExpense,
 }
 

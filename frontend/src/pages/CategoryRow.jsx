@@ -24,7 +24,7 @@ function CategoryRow({ expenses, category }) {
         <tr>
             <td>{category}</td>
             <td>{calculateCategoryTotal(category)}</td>
-            <td>{100 * calculateCategoryTotal(category) / calculateTotalSpending()}%</td>
+            <td>{(100 * calculateCategoryTotal(category) / calculateTotalSpending()).toFixed(2)}%</td>
         </tr>
     )
 }
