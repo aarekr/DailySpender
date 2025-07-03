@@ -20,7 +20,7 @@ function Dashboard() {
     if (!user) {
       navigate('/login')
     }
-    dispatch(getExpenses)
+    dispatch(getExpenses())
     return () => {
       dispatch(reset())
     }

@@ -31,6 +31,7 @@ const setExpenditure = asyncHandler(async (req, res) => {
         category: req.body.category,
         user: req.user.id,
     })
+    console.log("expenditureController setExpenditure expenditure: ", expenditure)
     res.status(200).json(expenditure)
 })
 
