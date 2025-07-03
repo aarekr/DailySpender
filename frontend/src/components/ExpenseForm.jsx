@@ -16,9 +16,11 @@ function ExpenseForm() {
     return <section className="form">
         <form onSubmit={onSubmit}>
             <div className="form-group">
-                <label htmlFor="text">Expense</label>
+                <label htmlFor="text">Amount</label>
                 <input type="text" name="amount" id="amount" value={amount} onChange={(e) => setAmount(e.target.value)} />
+                <label htmlFor="text">Category</label>
                 <select name="category" id="category" value={category} onChange={(e) => setCategory(e.target.value)}>
+                    <option value="">-- Please choose spending category --</option>
                     <option value="Beer">Beer</option>
                     <option value="Food">Food</option>
                     <option value="Eating out">Eating out</option>
