@@ -11,7 +11,6 @@ const initialState = {
 
 // Create new expense
 export const createExpense = createAsyncThunk('expenses/create', async (expenseData, thunkAPI) => {
-    console.log("expenseSlice createExpense expenseData:", expenseData)
     try {
         const token = thunkAPI.getState().auth.user.token
         return await expenseService.createExpense(expenseData, token)

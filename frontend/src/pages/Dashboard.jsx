@@ -5,6 +5,7 @@ import ExpenseForm from "../components/ExpenseForm"
 import ExpenseItem from "../components/ExpenseItem"
 import Spinner from '../components/Spinner'
 import CategoryRow from "./CategoryRow"
+import DateTable from "./DateTable"
 import { getExpenses, reset } from "../features/expenses/expenseSlice"
 
 function Dashboard() {
@@ -61,8 +62,19 @@ function Dashboard() {
                 <CategoryRow expenses={expenses} category={'Public transport'} />
                 <CategoryRow expenses={expenses} category={'Travel'} />
                 <CategoryRow expenses={expenses} category={'Other'} />
+                <CategoryRow expenses={expenses} category={'Total'} />
               </tbody>
             </table>
+          : null
+        }
+      </section>
+      <section className="content">
+        {expenses.length > 0
+          ? <><br /> <hr /> <br /> <h3>Expenses per day</h3></>
+          : null
+        }
+        {expenses.length > 0
+          ? <DateTable expenses={expenses} />
           : null
         }
       </section>

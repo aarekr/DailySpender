@@ -7,6 +7,8 @@ function CategoryRow({ expenses, category }) {
         for (let i=0; i<expenses.length; i++) {
             if (expenses[i].category === category) {
                 categorySum += expenses[i].amount
+            } else if (category === 'Total') {
+                categorySum += expenses[i].amount
             }
         }
         return categorySum
@@ -22,7 +24,7 @@ function CategoryRow({ expenses, category }) {
 
     return (
         <tr>
-            <td>{category}</td>
+            <td>{category === 'Total' ? <b>Total</b> : category}</td>
             <td>{calculateCategoryTotal(category)}</td>
             <td>{(100 * calculateCategoryTotal(category) / calculateTotalSpending()).toFixed(2)}%</td>
         </tr>
