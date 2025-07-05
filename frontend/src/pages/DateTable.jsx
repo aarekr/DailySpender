@@ -1,12 +1,16 @@
 function DayTable({ expenses }) {
+    const getModifiedDate = (expense) => {
+        const dateSplit = expense.createdAt.split('-')
+        return dateSplit[2].split('T')[0] + '.' + dateSplit[1] + '.' + dateSplit[0]
+    }
+
     const expensesPerDay = () => {
         let data = {}
         for (let i=0; i<expenses.length; i++) {
-            const dateSplit = expenses[i].createdAt.split('-')
-            const dateModified = dateSplit[2].split('T')[0] + '.' + dateSplit[1] + '.' + dateSplit[0]
-            console.log("---> ", dateModified, expenses[i].amount, typeof(expenses[i].amount))
-            data[dateModified] += Number(expenses[i].amount)
-            console.log("data[dateModified]: ", data[dateModified])
+            data[getModifiedDate(expenses[i])] = 0
+        }
+        for (let i=0; i<expenses.length; i++) {
+            data[getModifiedDate(expenses[i])] += Number(expenses[i].amount)
         }
         return data
     }
