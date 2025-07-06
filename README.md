@@ -30,5 +30,5 @@ Application for following spending levels and habits. Users register their daily
 * [Express](https://github.com/aarekr/LUT/tree/main/Express-Crash-Course)
 * [React](https://github.com/aarekr/LUT/commits/main/react-task-tracker)
 * [MERN](https://github.com/aarekr/LUT/tree/main/mern-tutorial)
-* [Learning diary]()
+* [Learning diary](https://github.com/aarekr/DailySpender/blob/main/SDS_learning_diary%20Aare%20Krivtsov.docx)
 * [Demo video](https://youtu.be/KZedLX4KkyU)
