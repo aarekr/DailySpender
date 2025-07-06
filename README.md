@@ -12,8 +12,8 @@ Application for following spending levels and habits. Users register their daily
 * Create .env file and enter the following 4 items:
 1) NODE_ENV = development
 2) PORT = 5000
-3) MONGO_URI = <your mongo address>
-4) JWT_SECRET = <your secret key>
+3) MONGO_URI = your mongo address
+4) JWT_SECRET = your secret key
 * Install react-router-dom in the frontend folder with command: npm install react-router-dom
 * In the frontend folder enter command: npm install
 * Start the application in the main folder with command: npm run dev
@@ -24,3 +24,11 @@ Application for following spending levels and habits. Users register their daily
 * Create a user account by giving your email, name, and password
 * Log in if not logged in after registration
 * Enter new expenses as they occur via the Expense form
+
+## Exercise projects, learning diary, and demo video
+* [Node](https://github.com/aarekr/LUT/tree/main/Node-Crash-Course)
+* [Express](https://github.com/aarekr/LUT/tree/main/Express-Crash-Course)
+* [React](https://github.com/aarekr/LUT/commits/main/react-task-tracker)
+* [MERN](https://github.com/aarekr/LUT/tree/main/mern-tutorial)
+* [Learning diary]()
+* [Demo video](https://youtu.be/KZedLX4KkyU)
